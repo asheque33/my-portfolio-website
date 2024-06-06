@@ -1,5 +1,6 @@
 "use client";
 import FormButton from "@/app/(AdminLayout)/components/FormButton";
+import { useCreateProjectMutation } from "@/redux/api/projectsApi/projectsApi";
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
@@ -13,8 +14,16 @@ interface IFormInput {
 }
 
 const CreateProjectPage = () => {
-  const { register, handleSubmit } = useForm<IFormInput>();
-  const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
+  const [createAProject, { isLoading }] = useCreateProjectMutation();
+  const { register, handleSubmit, reset } = useForm<IFormInput>();
+  const onSubmit: SubmitHandler<IFormInput> = async (data) => {
+    const res = await createAProject(data);
+    if (isLoading) {
+      return <p>Loading..................</p>;
+    }
+    console.log("response", res);
+    console.log(data);
+  };
 
   return (
     <div className="text-gray-500 flex flex-col mx-auto my-16  max-w-5xl">
