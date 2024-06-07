@@ -1,8 +1,10 @@
 "use client";
 import FormButton from "@/app/(AdminLayout)/components/FormButton";
 import { useCreateProjectMutation } from "@/redux/api/projectsApi/projectsApi";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { toast } from "sonner";
 
 interface IFormInput {
   title: string;
@@ -14,15 +16,28 @@ interface IFormInput {
 }
 
 const CreateProjectPage = () => {
-  const [createAProject, { isLoading }] = useCreateProjectMutation();
   const { register, handleSubmit, reset } = useForm<IFormInput>();
-  const onSubmit: SubmitHandler<IFormInput> = async (data) => {
-    const res = await createAProject(data);
-    if (isLoading) {
-      return <p>Loading..................</p>;
+  const router = useRouter();
+  const onSubmit: SubmitHandler<IFormInput> = async (projectData) => {
+    try {
+      const res = await fetch("http://localhost:4000/project", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(projectData),
+        cache: "no-store",
+      });
+      const data = await res.json();
+      if (data.success) {
+        toast.success(data.message);
+        router.refresh();
+        reset();
+      }
+      console.log(data);
+    } catch (error: any) {
+      console.log(error);
     }
-    console.log("response", res);
-    console.log(data);
   };
 
   return (

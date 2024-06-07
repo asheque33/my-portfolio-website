@@ -8,15 +8,22 @@ type IFormInput = {
 };
 
 const CreateSkillPage = () => {
-  const [createASkill, { isLoading }] = useCreateSkillMutation();
   const { register, handleSubmit, reset } = useForm<IFormInput>();
-  const onSubmit: SubmitHandler<IFormInput> = async (data) => {
-    const res = await createASkill(data);
-    if (isLoading) {
-      return <p>Loading..................</p>;
+  const onSubmit: SubmitHandler<IFormInput> = async (skillData) => {
+    try {
+      const res = await fetch("http://localhost:6000/skill", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(skillData),
+        cache: "no-store",
+      });
+      const data = await res.json();
+      console.log(data);
+    } catch (error: any) {
+      console.log(error);
     }
-    console.log("response", res);
-    console.log(data);
   };
   return (
     <form>
