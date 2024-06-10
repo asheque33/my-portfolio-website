@@ -1,12 +1,15 @@
-"use client";
-
 import Link from "next/link";
 import Button from "../../adminComponents/Button";
-import { useGetProjectsQuery } from "@/redux/api/projectsApi/projectsApi";
+import ProjectCard from "../../adminComponents/ProjectCard";
 
-const ProjectsPage = () => {
-  const { data: projects, isLoading } = useGetProjectsQuery(undefined);
-  if (isLoading) return <div>Loading......</div>;
+const ProjectsPage = async () => {
+  const projects = await fetch("http://localhost:4000/projects", {
+    cache: "no-store",
+  });
+  const data = await projects.json();
+  if (data.success) {
+    console.log(data.message);
+  }
 
   return (
     <div>
@@ -18,7 +21,12 @@ const ProjectsPage = () => {
           <Button label="Add New" />
         </Link>
       </div>
-      <p>{projects.length}</p>
+      <div className="flex gap-6 justify-center ">
+        {data.data &&
+          data?.data.map((d: any) => (
+            <ProjectCard key={d.id} singleProject={d} />
+          ))}
+      </div>
     </div>
   );
 };

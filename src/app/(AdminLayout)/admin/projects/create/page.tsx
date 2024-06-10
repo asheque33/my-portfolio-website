@@ -1,29 +1,20 @@
 "use client";
 import FormButton from "@/app/(AdminLayout)/components/FormButton";
-import { useCreateProjectMutation } from "@/redux/api/projectsApi/projectsApi";
+import { IProjectFormInput } from "@/types";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
 
-interface IFormInput {
-  title: string;
-  description: string;
-  image: string;
-  liveLink: string;
-  clientLink: string;
-  serverLink: string;
-}
-
 const CreateProjectPage = () => {
-  const { register, handleSubmit, reset } = useForm<IFormInput>();
+  const { register, handleSubmit, reset } = useForm<IProjectFormInput>();
   const router = useRouter();
-  const onSubmit: SubmitHandler<IFormInput> = async (projectData) => {
+  const onSubmit: SubmitHandler<IProjectFormInput> = async (projectData) => {
     try {
       const res = await fetch("http://localhost:4000/project", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "content-type": "application/json",
         },
         body: JSON.stringify(projectData),
         cache: "no-store",
@@ -49,7 +40,7 @@ const CreateProjectPage = () => {
         <input
           className="w-full max-w-3xl px-3 py-2 border border-gray-300 rounded mt-2"
           type="text"
-          {...register("title")}
+          {...register("title", { required: true })}
           placeholder="Project Title"
           id="title"
         />
@@ -57,7 +48,7 @@ const CreateProjectPage = () => {
           Description
         </label>
         <textarea
-          {...register("description")}
+          {...register("description", { required: true })}
           className="w-full max-w-3xl px-3 py-2 border border-gray-300 rounded mt-2"
           placeholder="Description..."
           id="description"
@@ -67,9 +58,9 @@ const CreateProjectPage = () => {
         </label>
         <input
           className="w-full max-w-3xl px-3 py-2 border border-gray-300 rounded mt-2"
-          type="text"
+          type="url"
           placeholder="Project Image"
-          {...register("image")}
+          {...register("image", { required: true })}
           id="image"
         />
         <label className="block" htmlFor="liveLink">
@@ -77,8 +68,8 @@ const CreateProjectPage = () => {
         </label>
         <input
           className="w-full max-w-3xl px-3 py-2 border border-gray-300 rounded mt-2"
-          type="text"
-          {...register("liveLink")}
+          type="url"
+          {...register("liveLink", { required: true })}
           id="live-link"
         />
         <label className="block" htmlFor="clientLink">
@@ -86,8 +77,8 @@ const CreateProjectPage = () => {
         </label>
         <input
           className="w-full max-w-3xl px-3 py-2 border border-gray-300 rounded mt-2"
-          type="text"
-          {...register("clientLink")}
+          type="url"
+          {...register("clientLink", { required: true })}
           placeholder="Client Link"
           id="client-link"
         />
@@ -96,8 +87,8 @@ const CreateProjectPage = () => {
         </label>
         <input
           className="w-full max-w-3xl px-3 py-2 border border-gray-300 rounded mt-2"
-          type="text"
-          {...register("serverLink")}
+          type="url"
+          {...register("serverLink", { required: true })}
           placeholder="Server Link"
           id="server-link"
         />
