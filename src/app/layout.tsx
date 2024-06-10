@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import Providers from "@/lib/Providers/Providers";
 
-const inter = Inter({ subsets: ["latin"] });
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,10 +13,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <Providers>
+    <>
       <html lang="en" className="!scroll-smooth">
-        <body className={inter.className}>{children}</body>
+        <body>{children}</body>
       </html>
-    </Providers>
+    </>
   );
 }

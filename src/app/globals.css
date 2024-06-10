@@ -1,6 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+* {
+  box-sizing: border-box;
+  background-color: "#191A1A";
+  margin: 0;
+  padding: 0;
+}
+
 /* 
 :root {
   --foreground-rgb: 0, 0, 0;
