@@ -15,11 +15,20 @@ export default async function Home() {
   if (data.success) {
     console.log(data.message);
   }
+  const res2 = await fetch("http://localhost:4000/projects", {
+    cache: "no-store",
+  });
+  const projectsData = await res2.json();
+  const projects = projectsData["data"];
+  if (projectsData.success) {
+    console.log(projectsData.message);
+  }
+
   return (
     <div className="container mx-auto px-12 py-4">
       <BannerSection />
       <SkillsSection skills={skills} />
-      <ProjectsSection />
+      <ProjectsSection projects={projects} />
       <AboutSection />
       <ContactSection />
     </div>
