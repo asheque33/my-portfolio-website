@@ -1,3 +1,4 @@
+"use client"
 import SkillCard from "@/app/(AdminLayout)/adminComponents/SkillCard";
 import { ISkillFormInput } from "@/types";
 

@@ -12,7 +12,7 @@ const SkillForm = () => {
   const router = useRouter();
   const onSubmit: SubmitHandler<ISkillFormInput> = async (skillData) => {
     try {
-      const res = await fetch("http://localhost:4000/skill", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/skill`, {
         method: "POST",
         headers: {
           "content-Type": "application/json",

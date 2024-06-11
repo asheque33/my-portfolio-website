@@ -1,11 +1,12 @@
+"use client";
 import React from "react";
 
 const Footer = () => {
   return (
     <footer className="footer text-white border border-t-[#33353F] border-l-transparent border-r-transparent ">
-      <div className="container p-12 flex justify-between">
+      <div className="container py-8 px-16 flex justify-between mx-auto">
         <span>Asheque</span>
-        <p className="text-slate-600">All Rights Reserved</p>
+        <p>All Rights Reserved</p>
       </div>
     </footer>
   );

@@ -12,7 +12,7 @@ const ProjectForm = () => {
   const router = useRouter();
   const onSubmit: SubmitHandler<IProjectFormInput> = async (projectData) => {
     try {
-      const res = await fetch("http://localhost:4000/project", {
+      const res = await fetch("${process.env.NEXT_PUBLIC_API_URL}/project", {
         method: "POST",
         headers: {
           "content-type": "application/json",

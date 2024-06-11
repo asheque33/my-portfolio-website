@@ -4,7 +4,7 @@ import ProjectCard from "../../adminComponents/ProjectCard";
 import { IProjectFormInput } from "@/types";
 
 const ProjectsPage = async () => {
-  const projects = await fetch("http://localhost:4000/projects", {
+  const projects = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/projects`, {
     cache: "no-store",
   });
   const data = await projects.json();

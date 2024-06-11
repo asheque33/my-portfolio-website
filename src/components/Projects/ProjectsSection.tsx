@@ -1,3 +1,4 @@
+"use client";
 import ProjectCard from "@/app/(AdminLayout)/adminComponents/ProjectCard";
 import { IProjectFormInput } from "@/types";
 import React from "react";

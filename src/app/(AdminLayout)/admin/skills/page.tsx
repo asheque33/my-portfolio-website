@@ -6,7 +6,7 @@ import SkillCard from "../../adminComponents/SkillCard";
 import { ISkillFormInput } from "@/types";
 
 const SkillsPage = async () => {
-  const skills = await fetch("http://localhost:4000/skills", {
+  const skills = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/skills`, {
     cache: "no-store",
   });
   const data = await skills.json();

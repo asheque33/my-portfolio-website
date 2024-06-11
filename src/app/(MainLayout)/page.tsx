@@ -5,19 +5,19 @@ import ProjectsSection from "@/components/Projects/ProjectsSection";
 import SkillsSection from "@/components/Skills/SkillsSection";
 
 export default async function Home() {
-  const res = await fetch("http://localhost:4000/skills", {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/skills`, {
     cache: "no-store",
   });
   const data = await res.json();
-  const skills = data["data"];
+  const skills = data.data;
   if (data.success) {
     console.log(data.message);
   }
-  const res2 = await fetch("http://localhost:4000/projects", {
+  const res2 = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/projects`, {
     cache: "no-store",
   });
   const projectsData = await res2.json();
-  const projects = projectsData["data"];
+  const projects = projectsData.data;
   if (projectsData.success) {
     console.log(projectsData.message);
   }
