@@ -34,8 +34,8 @@ const Navbar = () => {
     <nav className="fixed border border-[#33353F] top-0 left-0 right-0 z-10 bg-[#191A1A] bg-opacity-100">
       <div
         className="flex flex-wrap  
-      lg:py-4
-      items-center justify-around px-2 md:px-8 py-2"
+      lg:py-4 py-2
+      items-center justify-around px-2 md:px-8 "
       >
         <Link
           href="/"

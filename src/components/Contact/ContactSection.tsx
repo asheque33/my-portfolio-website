@@ -41,10 +41,10 @@ const ContactSection = () => {
   return (
     <section id="contact" className="scroll-mt-24">
       <h2 className="font-bold text-center p-4 sm:p-6 md:p-8 text-neutral-300 sm:text-3xl text-xl md:text-4xl">
-        Let&apos;s Connect
+        Connect With Me
       </h2>
-      <div className="grid grid-cols-2 mt-4 mb-12  py-12 px-4 gap-x-4 bg-[#242526]">
-        <div className="max-w-5/12 w-full py-12 text-center pr-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 mt-4 mb-12 py-4  sm:py-12 px-4 gap-x-4 bg-[#242526]">
+        <div className="max-w-5/12 w-full  py-12 text-center pr-2">
           <p className="text-[#ADB7BE] mb-4 w-full">
             I&apos;m currently looking for new opportunity.My inbox is always
             open.Wheather you have raised question,just knock to me.Hopefully,we
