@@ -18,7 +18,9 @@ const ProjectForm = () => {
           "content-type": "application/json",
         },
         body: JSON.stringify(projectData),
-        cache: "no-store",
+        next: {
+          revalidate: 30,
+        },
       });
       const data = await res.json();
       if (data.success) {

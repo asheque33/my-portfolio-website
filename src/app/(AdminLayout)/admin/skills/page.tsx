@@ -3,6 +3,7 @@ import Button from "../../adminComponents/Button";
 import Link from "next/link";
 import Container from "@/components/Shared/container/Container";
 import SkillCard from "../../adminComponents/SkillCard";
+import { ISkillFormInput } from "@/types";
 
 const SkillsPage = async () => {
   const skills = await fetch("http://localhost:4000/skills", {
@@ -23,7 +24,9 @@ const SkillsPage = async () => {
       </div>
       <div className=" max-w-screen-xl w-full mx-auto flex flex-wrap  items-center p-3 gap-3 ">
         {data.data &&
-          data?.data.map((d: any) => <SkillCard key={d.id} singleSkill={d} />)}
+          data?.data.map((d: ISkillFormInput) => (
+            <SkillCard key={d.id} singleSkill={d} />
+          ))}
       </div>
     </Container>
   );

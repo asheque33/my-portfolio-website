@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Button from "../../adminComponents/Button";
 import ProjectCard from "../../adminComponents/ProjectCard";
+import { IProjectFormInput } from "@/types";
 
 const ProjectsPage = async () => {
   const projects = await fetch("http://localhost:4000/projects", {
@@ -23,8 +24,8 @@ const ProjectsPage = async () => {
       </div>
       <div className="flex gap-6 justify-center ">
         {data.data &&
-          data?.data.map((d: any) => (
-            <ProjectCard key={d.id} singleProject={d} />
+          data?.data.map((d: IProjectFormInput) => (
+            <ProjectCard key={d._id} singleProject={d} />
           ))}
       </div>
     </div>

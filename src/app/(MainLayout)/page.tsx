@@ -1,9 +1,7 @@
 import AboutSection from "@/components/About/AboutSection";
 import BannerSection from "@/components/Banner/BannerSection";
 import ContactSection from "@/components/Contact/ContactSection";
-import Footer from "@/components/Footer/Footer";
 import ProjectsSection from "@/components/Projects/ProjectsSection";
-import Navbar from "@/components/Shared/Navbar";
 import SkillsSection from "@/components/Skills/SkillsSection";
 
 export default async function Home() {

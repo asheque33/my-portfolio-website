@@ -15,10 +15,12 @@ const SkillForm = () => {
       const res = await fetch("http://localhost:4000/skill", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "content-Type": "application/json",
         },
         body: JSON.stringify(skillData),
-        cache: "no-store",
+        next: {
+          revalidate: 30,
+        },
       });
       const data = await res.json();
       if (data.success) {
