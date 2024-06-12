@@ -10,11 +10,11 @@ const AboutSection = () => {
 
   return (
     <section id="about" className="text-white scroll-mt-16">
-      <h2 className="font-bold text-center p-6 md:p-8 text-neutral-300 sm:text-3xl text-xl md:text-4xl">
+      <h2 className="font-bold text-center mt-4 p-6 md:p-8 text-neutral-300 sm:text-3xl text-xl md:text-4xl">
         About Me
       </h2>
-      <div className="max-w-screen-lg w-full overflow-x-hidden mx-auto p-8 sm:p-4">
-        <div className="flex flex-wrap ">
+      <div className="max-w-screen-lg w-full overflow-x-scroll sm:overflow-x-hidden mx-auto p-2 sm:p-4">
+        <div className="flex flex-col flex-wrap ">
           <p className="text-wrap text-start  sm:text-center  text-base md:text-lg ">
             I am a Mern Stack developer with a passion for creating interactive
             and responsive websites.I have worked with

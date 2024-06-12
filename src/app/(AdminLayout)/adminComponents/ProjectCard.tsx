@@ -6,8 +6,8 @@ import React from "react";
 const ProjectCard = ({ singleProject }: any) => {
   return (
     <>
-      <div className="  w-[40dvh] sm:w-[40dvh] mx-auto md:w-[50dvh]    flex flex-col justify-center p-4 border border-gray-700 rounded-lg shadow-2xl">
-        <p className="text-2xl uppercase text-gray-900 font-semibold tracking-[0.5em] text-transparent  pb-5  bg-clip-text bg-gradient-to-r from-purple-700 to-orange-500  text-1xl">
+      <div className="w-[40dvh] sm:w-[40dvh] mx-auto md:w-[50dvh]    flex flex-col justify-center p-4 mr-6  md:mr-0 border border-gray-700 rounded-lg shadow-2xl">
+        <p className="text-2xl uppercase text-gray-900 font-semibold tracking-[0.25em] text-transparent  pb-5  bg-clip-text bg-gradient-to-r from-purple-700 to-orange-500  text-1xl">
           {singleProject.title.length > 15
             ? singleProject.title.substring(0, 15)
             : singleProject.title}

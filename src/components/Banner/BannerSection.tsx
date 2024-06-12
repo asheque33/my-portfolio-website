@@ -18,7 +18,7 @@ const BannerSection = () => {
           >
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-600">
               {" "}
-              Hi,I&apos;m{""}
+              Hi, I&apos;m{""}
             </span>
             <br />
             <TypeAnimation
@@ -28,17 +28,16 @@ const BannerSection = () => {
               repeat={Infinity}
             />
           </h1>
-          <p className="text-[#ADB7BE] text-base sm:text-lg lg:text-xl mb-6">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint rerum
-            maiores facilis ab, animi molestiae fugiat exercitationem sit
-            officia nesciunt?
+          <p className=" px-3 text-center md:text-start text-[#ADB7BE] text-base sm:text-lg lg:text-xl mb-6">
+            A passionate Mern Developer, with having experience in building and
+            developing web applications.
           </p>
           <div>
             <Link
               id="#contact"
               href="#contact"
-              className="px-6 py-3 w-full sm:w-fit rounded-full mr-4 
-            bg-gradient-to-br to-primary-500 from-secondary-500 text-white
+              className="px-6 py-1.5 sm:py-3 w-full sm:w-fit rounded-full mr-0 sm:mr-4 mb-3 sm:mb-0 
+            bg-gradient-to-br to-primary-700 from-secondary-500 text-white
             hover:bg-slate-200"
             >
               Hire Me
@@ -46,7 +45,7 @@ const BannerSection = () => {
             <Link href="https://drive.google.com/file/d/1yD5ZgBj6jTplxzgB4oh-1P1R8TluvgA6/view?usp=drive_link">
               <button
                 className="px-1 py-1 w-full sm:w-fit rounded-full 
-            bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-800 text-white border border-white mt-3"
+            bg-gradient-to-br from-primary-700 to-secondary-500 hover:bg-slate-800 text-white border border-white mt-3"
               >
                 <span
                   className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2

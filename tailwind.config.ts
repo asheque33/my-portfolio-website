@@ -18,8 +18,8 @@ module.exports = {
     },
     colors: {
       ...colors,
-      primary: colors.green,
-      secondary: colors.fuchsia,
+      primary: colors.purple,
+      secondary: colors.orange,
       color1: "#D02F16",
       color2: "#2A65F1",
       color3: "#38BDF8",
