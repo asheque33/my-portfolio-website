@@ -10,9 +10,13 @@ import { toast } from "sonner";
 const ProjectForm = () => {
   const { register, handleSubmit, reset } = useForm<IProjectFormInput>();
   const router = useRouter();
-  const onSubmit: SubmitHandler<IProjectFormInput> = async (projectData) => {
+  const onSubmit: SubmitHandler<IProjectFormInput> = async (data) => {
+    const technologies = data.technology
+      .split(",")
+      .map((tech: string) => tech.trim());
+    const projectData = { ...data, technology: technologies };
     try {
-      const res = await fetch("${process.env.NEXT_PUBLIC_API_URL}/project", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/project`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -23,6 +27,7 @@ const ProjectForm = () => {
         },
       });
       const data = await res.json();
+      console.log("project data", data);
       if (data.success) {
         toast.success(data.message);
         router.refresh();
@@ -43,15 +48,6 @@ const ProjectForm = () => {
         {...register("title", { required: true })}
         placeholder="Project Title"
         id="title"
-      />
-      <label className="block" htmlFor="description">
-        Description
-      </label>
-      <textarea
-        {...register("description", { required: true })}
-        className="w-full max-w-3xl px-3 py-2 border border-gray-300 rounded mt-2"
-        placeholder="Description..."
-        id="description"
       />
       <label className="block" htmlFor="image">
         Image
@@ -91,6 +87,25 @@ const ProjectForm = () => {
         {...register("serverLink", { required: true })}
         placeholder="Server Link"
         id="server-link"
+      />
+      <label className="block" htmlFor="technology">
+        Technologies
+      </label>
+      <input
+        className="w-full max-w-3xl px-3 py-2 border border-gray-300 rounded mt-2"
+        type="text"
+        {...register("technology", { required: true })}
+        placeholder="Technologies Used In This Project"
+        id="technology"
+      />
+      <label className="block" htmlFor="description">
+        Description
+      </label>
+      <textarea
+        {...register("description", { required: true })}
+        className="w-full max-w-3xl px-3 py-2 border border-gray-300 rounded mt-2"
+        placeholder="Description..."
+        id="description"
       />
       <FormButton type="submit" name="Post Project" />
     </form>
