@@ -1,7 +1,8 @@
 "use client";
-import ProjectCard from "@/app/(AdminLayout)/adminComponents/ProjectCard";
+
 import { IProjectFormInput } from "@/types";
 import React from "react";
+import ProjectCard from "../UI/ProjectCard";
 
 const ProjectsSection = ({ projects }: { projects: IProjectFormInput[] }) => {
   return (
@@ -11,8 +12,8 @@ const ProjectsSection = ({ projects }: { projects: IProjectFormInput[] }) => {
       </h2>
       <p className="text-center text-neutral-400 text-base pb-4">Explore Now</p>
       <div
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-2 lg:gap-6
-       mx-auto md:mx-0"
+        className="grid grid-cols-1 md:grid-cols-2  gap-4 md:gap-y-8  md:gap-x-2
+       mx-auto "
       >
         {projects.map((project: IProjectFormInput) => (
           <ProjectCard key={project._id} singleProject={project} />
